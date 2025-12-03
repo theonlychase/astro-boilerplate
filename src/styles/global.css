@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important; /* Change 'white' to your desired color */
+    box-shadow: 0 0 0px 1000px white inset !important; /* For other browsers if needed */
+    -webkit-text-fill-color: black !important; /* Optional: Adjust text color */
+    color: black !important; /* Optional: Adjust text color */
+  }
+}
+
+@theme {
+  --animate-fade-content: fadeContent 0.6s ease-in;
+
+  @keyframes fadeContent {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}

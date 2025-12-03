@@ -1,0 +1,28 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  description?: string;
+  id?: string;
+  title: string;
+}
+
+const { description = "Default Description", id, title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body id={id}>
+    <div id="app">
+      <slot />
+    </div>
+  </body>
+</html>
