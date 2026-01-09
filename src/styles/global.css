@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: light --default;
+  themes: wireframe --default;
+}
+@plugin "daisyui/theme" {
+  name: "wireframe";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+  --color-primary: #222;
 }
 
 @layer base {
@@ -25,6 +32,27 @@
     box-shadow: 0 0 0px 1000px white inset !important; /* For other browsers if needed */
     -webkit-text-fill-color: black !important; /* Optional: Adjust text color */
     color: black !important; /* Optional: Adjust text color */
+  }
+}
+
+/* Dynamic Aspect Ratio Utility */
+@utility aspect-* {
+  @supports (aspect-ratio: 1 / 1) {
+    aspect-ratio: --value(--aspect-ratio-*, ratio, [ratio]);
+  }
+
+  @supports not (aspect-ratio: 1 / 1) {
+    &::before {
+      content: '';
+      float: left;
+      padding-top: calc(100% / (--value(--aspect-ratio-*, ratio, [ratio])));
+    }
+
+    &::after {
+      clear: left;
+      content: '';
+      display: block;
+    }
   }
 }
 
