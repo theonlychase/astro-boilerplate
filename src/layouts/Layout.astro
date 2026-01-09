@@ -6,11 +6,13 @@ import Page from "@/components/layout/Page.astro";
 
 interface Props {
   description?: string;
-  id?: string;
-  title: string;
+  title?: string;
 }
 
-const { description = "Default Description", id, title } = Astro.props;
+const {
+  description = "Astro Boilerplate - Description",
+  title = "Astro Boilerplate - Title",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -23,7 +25,8 @@ const { description = "Default Description", id, title } = Astro.props;
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body id={id}>
+
+  <body>
     <div id="app">
       <Header />
 

@@ -1,7 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { $layout } from "@/stores/layout.ts";
+
+// Set Page Layout Props
+$layout.set({
+  description: "Home Description",
+  title: "Home Title",
+});
 ---
 
-<Layout title="Page Title">
+<Layout {...$layout.get()}>
   <div></div>
 </Layout>
